@@ -1,0 +1,45 @@
+*,
+::after,
+::before {
+	box-sizing: border-box;
+}
+
+:where(*) {
+	margin: 0;
+	padding: 0;
+}
+
+:where(html) {
+	font-family: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans", system-ui, sans-serif;
+	line-height: 1.5;
+
+	@media (prefers-reduced-motion: no-preference) {
+		& :focus-within {
+			scroll-behavior: smooth;
+		}
+	}
+}
+
+:where(body) {
+	min-height: 100dvh;
+	background-color: antiquewhite;
+	color: grey;
+	display: grid;
+	grid-template-columns: 1fr 30rem 1fr;
+	grid-template-rows: min-content;
+	align-content: start;
+	gap: 2rem;
+
+	> * {
+		grid-column: 2/3;
+	}
+}
+
+:where(fieldset) {
+	display: grid;
+	grid-auto-flow: row;
+	grid-template-columns: max-content 1fr;
+	grid-template-rows: max-content;
+	padding: 1rem;
+	gap: 1rem 0.5rem;
+}
